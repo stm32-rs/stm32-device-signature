@@ -1,0 +1,17 @@
+[package]
+name = "stm32-device-signature"
+version = "0.1.0"
+authors = ["Vadim Kaushan <admin@disasm.info>"]
+edition = "2018"
+
+[dependencies]
+cortex-m = "0.6.2"
+
+[features]
+stm32f0 = []
+stm32f1 = []
+stm32f3 = []
+stm32f4 = []
+stm32g0 = []
+stm32l0 = []
+stm32l4 = []

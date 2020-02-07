@@ -2,10 +2,18 @@
 name = "stm32-device-signature"
 version = "0.1.0"
 authors = ["Vadim Kaushan <admin@disasm.info>"]
+categories = ["embedded", "hardware-support", "no-std"]
+description = "Device electronic signature 'driver' for STM32 microcontrollers"
+keywords = ["arm", "stm32"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/stm32-rs/stm32-device-signature"
 edition = "2018"
 
 [dependencies]
 cortex-m = "0.6.2"
+
+[package.metadata.docs.rs]
+features = ["stm32f1"]
 
 [features]
 stm32f0 = []

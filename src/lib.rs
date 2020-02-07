@@ -1,3 +1,15 @@
+//! This crate provides a way to access Device electronic signature
+//! items on STM32 microcontrollers.
+//!
+//! You need to pass one of the features in order to use this crate:
+//! * `stm32f0`
+//! * `stm32f1`
+//! * `stm32f3`
+//! * `stm32f4`
+//! * `stm32g0`
+//! * `stm32l0`
+//! * `stm32l4`
+
 #![no_std]
 
 use core::slice;

@@ -47,7 +47,7 @@ mod pointers {
 use pointers::*;
 
 
-/// Returns a 12-byte slice with a unique device ID
+/// Returns a 12-byte unique device ID
 pub fn device_id() -> &'static [u8; 12] {
     unsafe { &*DEVICE_ID_PTR.cast::<[u8; 12]>() }
 }

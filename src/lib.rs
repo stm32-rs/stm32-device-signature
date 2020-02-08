@@ -12,7 +12,6 @@
 
 #![no_std]
 
-use core::slice;
 use cortex_m::interrupt;
 
 #[cfg(any(feature = "stm32f0", feature = "stm32f3"))]
@@ -61,11 +60,10 @@ pub fn device_id_hex() -> &'static str {
     unsafe {
         if DEVICE_ID_STR.as_ptr().read_volatile() == 0 {
             interrupt::free(|_| {
-                let hex = "0123456789abcdef".as_bytes();
-                let device_id = slice::from_raw_parts(DEVICE_ID_PTR, 12);
-                for i in 0..12 {
-                    let lo = device_id[i] & 0xf;
-                    let hi = (device_id[i] >> 4) & 0xf;
+                let hex = b"0123456789abcdef";
+                for (i, b) in device_id().iter().enumerate() {
+                    let lo = b & 0xf;
+                    let hi = (b >> 4) & 0xfu8;
                     DEVICE_ID_STR[i*2] = hex[lo as usize];
                     DEVICE_ID_STR[i*2+1] = hex[hi as usize];
                 }

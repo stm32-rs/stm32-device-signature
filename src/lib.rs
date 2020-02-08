@@ -49,8 +49,8 @@ use pointers::*;
 
 
 /// Returns a 12-byte slice with a unique device ID
-pub fn device_id() -> &'static [u8] {
-    unsafe { slice::from_raw_parts(DEVICE_ID_PTR, 12) }
+pub fn device_id() -> &'static [u8; 12] {
+    unsafe { &*DEVICE_ID_PTR.cast::<[u8; 12]>() }
 }
 
 

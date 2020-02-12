@@ -4,6 +4,7 @@
 //! You need to pass one of the features in order to use this crate:
 //! * `stm32f0`
 //! * `stm32f1`
+//! * `stm32f2`
 //! * `stm32f3`
 //! * `stm32f4`
 //! * `stm32g0`
@@ -27,7 +28,7 @@ mod pointers {
     pub const FLASH_SIZE_PTR: *const u16 = 0x1FFF_F7E0 as _;
 }
 
-#[cfg(feature = "stm32f4")]
+#[cfg(any(feature = "stm32f2", feature = "stm32f4"))]
 mod pointers {
     pub const DEVICE_ID_PTR: *const u8 = 0x1FFF_7A10 as _;
     pub const FLASH_SIZE_PTR: *const u16 = 0x1FFF_7A22 as _;

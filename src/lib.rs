@@ -10,6 +10,12 @@
 //! * `stm32f72x`
 //! * `stm32f73x`
 //! * `stm32g0`
+//! * `stm32h72x`
+//! * `stm32h73x`
+//! * `stm32h74x`
+//! * `stm32h75x`
+//! * `stm32h7ax`
+//! * `stm32h7bx`
 //! * `stm32l0`
 //! * `stm32l4`
 //! * `stm32wb5x`
@@ -46,6 +52,23 @@ mod pointers {
 mod pointers {
     pub const DEVICE_ID_PTR: *const u8 = 0x1FFF_7590 as _;
     pub const FLASH_SIZE_PTR: *const u16 = 0x1FFF_75E0 as _;
+}
+
+#[cfg(any(
+    feature = "stm32h72x",
+    feature = "stm32h73x",
+    feature = "stm32h74x",
+    feature = "stm32h75x"
+))]
+mod pointers {
+    pub const DEVICE_ID_PTR: *const u8 = 0x1FF1_E800 as _;
+    pub const FLASH_SIZE_PTR: *const u16 = 0x1FF1_E880 as _;
+}
+
+#[cfg(any(feature = "stm32h7ax", feature = "stm32h7bx"))]
+mod pointers {
+    pub const DEVICE_ID_PTR: *const u8 = 0x08FF_F800 as _;
+    pub const FLASH_SIZE_PTR: *const u16 = 0x08FF_F80C as _;
 }
 
 #[cfg(feature = "stm32l0")]

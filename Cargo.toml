@@ -1,6 +1,6 @@
 [package]
 name = "stm32-device-signature"
-version = "0.3.2"
+version = "0.3.3"
 authors = ["Vadim Kaushan <admin@disasm.info>"]
 categories = ["embedded", "hardware-support", "no-std"]
 description = "Device electronic signature 'driver' for STM32 microcontrollers"
